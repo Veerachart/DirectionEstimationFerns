@@ -16,9 +16,9 @@
 using namespace cv;
 using namespace std;
 
-string path_annotate = "/home/veerachart/Python-dir/PIROPO_annotated/omni_1A/omni1A_training/";
-string path_original = "/home/veerachart/Python-dir/Dataset_PIROPO/omni_1A/omni_1A/omni1A_training/";
-char csvname[] = "/home/veerachart/Python-dir/PIROPO_annotated/omni_1A/omni1A_training/omni1A_training.csv";
+string path_annotate = "/home/veerachart/Datasets/PIROPO_annotated/omni_1A/omni1A_training/";
+string path_original = "/home/veerachart/Datasets/Dataset_PIROPO/omni_1A/omni_1A/omni1A_training/";
+char csvname[] = "/home/veerachart/Datasets/PIROPO_annotated/omni_1A/omni1A_training/omni1A_training.csv";
 
 Mat visualize(Mat orig_img, Mat cropped_enlarged, int result_angle, int result_cat, double dir_angle, int orig_angle, int orig_cat, vector<float>descriptors, vector<float> descriptors_original);
 Mat draw_hog(vector<float>& hog_des);
@@ -32,6 +32,7 @@ int main(int argc, char ** argv) {
 	FisheyeHOGDescriptor hog(Size(hog_size,hog_size), Size(hog_size/2,hog_size/2), Size(hog_size/4,hog_size/4), Size(hog_size/4,hog_size/4), 9);
 	HOGDescriptor hog_original(Size(hog_size,hog_size), Size(hog_size/2,hog_size/2), Size(hog_size/4,hog_size/4), Size(hog_size/4,hog_size/4), 9);
 	hog.setAngleMatrix(Size(1600,1600));
+
 
 	ifstream f(csvname);
 
@@ -105,6 +106,7 @@ int main(int argc, char ** argv) {
 			imwrite("ferns_sample2.jpg",view);
 		destroyAllWindows();
 	}
+	return 0;
 }
 
 Mat visualize(Mat orig_img, Mat cropped_image, int result_angle, int result_cat, double dir_angle, int orig_angle, int orig_cat, vector<float> descriptors, vector<float> descriptors_original) {

@@ -3,3 +3,8 @@ Debug/*
 data/*
 files/*
 Backup_classifier/*
+CMakeFiles/*
+build/*
+Makefile
+*.cmake
+liblib.a

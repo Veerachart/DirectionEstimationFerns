@@ -1,0 +1,10 @@
+cmake_minimum_required(VERSION 2.8)
+project( DirectionEstimationFerns )
+find_package( OpenCV REQUIRED )
+find_package( ZLIB REQUIRED )
+add_library( lib ../src/ferns.cc ../src/fern_based_classifier.cc)
+add_executable( FisheyeFerns ../src/FisheyeFerns.cpp )
+target_link_libraries( FisheyeFerns ${OpenCV_LIBS} )
+target_link_libraries( FisheyeFerns lib )
+target_link_libraries( FisheyeFerns ${ZLIB_LIBRARIES} )
+
